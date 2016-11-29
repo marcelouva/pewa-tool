@@ -1,0 +1,1250 @@
+//-------------- prelude--------------//
+module moduleId 
+
+open Integer32 
+open util/sequniv as sequniv 
+
+fun fun_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field & type->(type+null)) & type 
+}
+
+
+abstract sig char {} 
+
+abstract sig Exception{}
+one sig E1 extends Exception{} 
+
+
+fun shl[l,r: Int]: Int { l << r } 
+fun sshr[l,r: Int]: Int { l >> r } 
+fun ushr[l,r: Int]: Int { l >>> r } 
+
+fun fun_univ_equals[
+  l:univ, 
+  r: univ 
+]: boolean { 
+  (equ[l,r]) => true else false 
+} 
+
+fun fun_set_add[
+  l: set univ,
+  e: univ
+]: set univ { 
+  l+e 
+} 
+
+fun fun_set_remove[
+  l: set univ,
+  e: univ
+]: set univ {
+  l-e
+}
+fun fun_set_contains[
+  l: set univ,
+  e: univ
+]: boolean {
+  (e in l) => true else false 
+} 
+pred isSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l in r) 
+} 
+pred isNotSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l !in r) 
+} 
+fun fun_set_size[s: set univ]: Int { #s } 
+
+fun fun_not_empty_set[s: set univ]: boolean { (#s = 0) => false else true } 
+
+pred pred_empty_set[l: set univ] { (no l) } 
+
+pred pred_set_some[l: set univ] { some l } 
+
+pred pred_set_one[l: set univ] { one l } 
+
+pred pred_set_lone[l: set univ] { lone l } 
+
+
+fun fun_set_intersection[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l & r 
+} 
+fun fun_set_difference[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l - r 
+} 
+fun fun_set_sum[
+  s: set Int
+]: Int {
+  sum s 
+} 
+pred pred_empty_list[l: seq univ] { (no l) } 
+
+fun fun_list_add[
+  l: seq univ,
+  e: univ
+]: seq univ {
+  sequniv/add[l,e] 
+} 
+
+fun fun_list_get[
+  l: seq univ, 
+  index: Int
+]: univ { 
+  index.l 
+} 
+
+fun fun_list_contains[
+  l: seq univ, 
+  e: univ
+]: boolean { 
+  (e in Int.l) => true else false 
+} 
+
+fun fun_list_remove[
+  l: seq univ, 
+  index: Int
+]: seq univ { 
+  sequniv/delete[l,index] 
+} 
+
+fun fun_list_size[s: seq univ]: Int { #s } 
+
+fun fun_list_equals[
+  s1:seq univ, 
+  s2: seq univ
+]: boolean { 
+  (s1=s2) => true else false 
+} 
+
+fun fun_list_empty[s: seq univ]: boolean { (#s = 0) => true else false } 
+
+pred pred_empty_map[map: univ -> univ] { (no map) } 
+
+fun fun_map_put[
+  map: univ->univ, 
+  k: univ, 
+  v: univ
+]: univ-> univ { 
+  map ++ (k->v) 
+}
+
+fun fun_map_contains_key[
+  map: univ -> univ, 
+  k: univ
+]: boolean { 
+  (some k.map) => true else false 
+}
+
+fun fun_map_remove[
+  map: univ -> univ, 
+  k: univ
+]: univ->univ {
+  map - (k->univ) 
+} 
+
+fun fun_map_get[
+  map: univ -> univ, 
+  k: univ
+]: univ { 
+  (some k.map) => k.map else null 
+} 
+
+fun fun_map_is_empty[
+  map: univ -> univ, 
+]: boolean { 
+  (some map) => false else true 
+}
+
+fun fun_map_clear[
+  mapEntries1: univ -> univ -> univ, 
+  map: univ
+]: univ -> univ -> univ { 
+  mapEntries1 - (map -> univ -> univ)
+}
+
+fun fun_map_size[
+  map: univ -> univ, 
+]: univ {
+  #map 
+} 
+
+pred isEmptyOrNull[u: univ] { u in null } 
+fun fun_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  ^rel 
+} 
+
+fun fun_reflexive_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  *rel 
+} 
+
+fun fun_transpose[
+  rel: univ -> univ 
+]: univ -> univ {
+  ~rel 
+} 
+
+
+fun rel_override[
+  r:univ->univ,
+  k:univ, 
+  v:univ
+]: univ->univ { 
+  r - (k->univ) + (k->v) 
+} 
+
+
+pred pred_in[n: univ, t: set univ] { n in t } 
+
+pred instanceOf[n: univ, t: set univ] { n in t } 
+
+pred isCasteableTo[n: univ, t: set univ] { (n in t) or (n = null) } 
+
+
+
+abstract sig actionExec{}
+
+
+
+
+pred pos_gen_Int[y:Int]{
+ some i: Int | y = i
+}
+
+
+act gen_intA[x:Int] {
+  pre {TruePred[]}
+  post {pos_gen_Int[x'] }
+}
+
+
+pred pos_gen_I32[y:JavaPrimitiveIntegerValue]{
+  some i: JavaPrimitiveIntegerValue | pred_java_primitive_integer_value_eq[y,i]
+}
+
+
+
+act gen_intJ[x:JavaPrimitiveIntegerValue] {
+  pre {TruePred[]}
+  post { pos_gen_I32[x'] }
+}
+
+pred pos_add_null[s:JavaPrimitiveIntegerValue,b:boolean]{
+   equ[s,null] implies equ[b,false]
+   not equ[s,null] implies equ[b,true]
+}
+
+
+pred pos_verify_null[s:JavaPrimitiveIntegerValue+null,b:boolean]{
+   equ[s,null] implies equ[b,false]
+   not equ[s,null] implies equ[b,true]
+}
+
+act verify_null[s:JavaPrimitiveIntegerValue,b:boolean] {
+  pre {TruePred[]}
+  post {pos_add_null[s,b'] }
+}
+
+pred pos_vaciar[s:set univ]{
+    no s
+}
+
+
+act init_set[s:set univ] {
+  pre {TruePred[]}
+  post {pos_vaciar[s']}
+}
+
+
+pred sequence[s: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {
+    all x: s.JavaPrimitiveIntegerValue | int32_prevs[x] in s.JavaPrimitiveIntegerValue 
+}
+
+
+
+
+pred precondition_Lista_pop
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+
+pred postcondition_Lista_pop 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+   sequence[values] 
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values',size] and  values'=values-(size->JavaPrimitiveIntegerValue))
+}
+
+
+act Lista_pop
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Lista_pop[thisType_1] }
+    post { postcondition_Lista_pop[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+
+
+pred postcondition_TS_clear
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,values': JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{ no values'}
+
+pred precondition_TS_clear
+[v: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{}
+
+act TS_clear_0
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  pre {
+   precondition_TS_clear[thisType_1]
+}
+   post {
+   postcondition_TS_clear[thisType_1,thisType_1']
+
+}}/*scope:0*/
+pred precondition_Lista_poll_first
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Lista_poll_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue+null
+]
+{
+
+
+
+  (ret=null and (no values) and (no values'))
+  
+
+or
+(sequence[values] and sequence[values'] and
+(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and 
+         values.JavaPrimitiveIntegerValue=(values'.JavaPrimitiveIntegerValue)+fun_java_primitive_integer_value_sub[size,i321]) and 
+    pred_java_primitive_integer_value_eq[ret,i320.values]  and
+   (all a,b:JavaPrimitiveIntegerValue | (a->b) in values and  pred_java_primitive_integer_value_neq[a,i320]  
+	implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') )
+}
+
+
+
+act Lista_poll_first
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue+null]{  
+    pre { precondition_Lista_poll_first[thisType_1] }
+    post { postcondition_Lista_poll_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+pred postcondition_Lista_contains[elem: JavaPrimitiveIntegerValue,values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,return_bool: boolean]
+{ 
+
+ sequence[values] and 
+values'=values and
+
+( not (no values.elem ) implies equ[return_bool, true])
+     and
+  ((no values.elem ) implies equ[return_bool, false] )
+
+}
+
+pred precondition_Lista_contains[]{
+}
+
+act contains
+[ /*out*/return_bool:boolean,/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  pre {
+   precondition_Lista_contains[]
+}
+   post {
+   postcondition_Lista_contains[intJ_1,thisType_1,thisType_1',return_bool']
+
+}}/*scope:0*/
+
+pred postcondition_Lista_element_m 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+    sequence[values] and values'=values and
+
+    pred_java_primitive_integer_value_eq[ret,i320.values]
+} 
+
+
+pred precondition_Lista_element_m
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[values] and not (no values)
+}
+
+act Lista_element_m[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_element_m[thisType_1] }
+    post { postcondition_Lista_element_m[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 
+pred postcondition_Lista_offer[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean
+]
+{
+   sequence[values] and sequence[values'] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1))
+   equ[ret,true]
+}
+
+
+pred precondition_Lista_offer
+[]{}
+
+
+
+act Lista_offer[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+   pre { precondition_Lista_offer[] }
+   post { postcondition_Lista_offer[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
+pred postcondition_Lista_peekLast 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue]
+{
+   sequence[values'] and 
+    sequence[values] and values'=values and
+
+   (some size:JavaPrimitiveIntegerValue | 
+		myseq_card[values,size] and 
+ret=values[fun_java_primitive_integer_value_sub[size,i321]]
+
+)
+}
+
+
+pred precondition_Lista_peekLast
+[  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act Lista_peekLast[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_peekLast[thisType_1] }
+    post { postcondition_Lista_peekLast[thisType_1,thisType_1,return_intJ_1'] }
+}/*scope:0*/
+
+
+pred precondition_Lista_add[]{}
+
+pred postcondition_Lista_add[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1))
+}
+
+
+
+act add[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_add[] }
+   post { postcondition_Lista_add[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+
+
+
+
+
+
+pred postcondition_Lista_offer_last[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean
+]
+{
+   sequence[values]  and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1)) and
+   equ[ret,true]
+}
+
+
+pred precondition_Lista_offer_last
+[]{}
+
+
+
+act Lista_offer_last[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+   pre { precondition_Lista_offer_last[] }
+   post { postcondition_Lista_offer_last[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
+pred postcondition_Lista_peek 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+    sequence[values]  and values'=values and
+ pred_java_primitive_integer_value_eq[ret,i320.values]
+} 
+
+
+pred precondition_Lista_peek
+[
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act peek[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, 
+         /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_peek[thisType_1] }
+    post { postcondition_Lista_peek[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 
+pred precondition_Lista_poll_last
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+
+pred postcondition_Lista_pollLast 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue+null
+]
+{
+
+  (ret=null and (no values) and (no values'))
+  or
+
+  ( sequence[values] and  sequence[values'] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values-((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) and 
+  ret=values[fun_java_primitive_integer_value_sub[size,i321]])
+)
+}
+
+
+
+
+
+
+
+
+
+act Lista_poll_last
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue+null]{  
+    pre { precondition_Lista_poll_last[thisType_1] }
+    post { postcondition_Lista_pollLast[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+pred precondition_Lista_remove_last
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+
+pred postcondition_Lista_remove_last 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+   sequence[values] and 
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values-((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue)
+and
+
+ret=values[fun_java_primitive_integer_value_sub[size,i321]])
+
+}
+
+
+act Lista_remove_last
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Lista_remove_last[thisType_1] }
+    post { postcondition_Lista_remove_last[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+
+
+
+
+
+
+
+
+
+pred precondition_Lista_offer_first[]{}
+
+pred postcondition_offer_first[
+  intJ_1: JavaPrimitiveIntegerValue,
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  thisType_1':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean  
+]
+{
+  sequence[thisType_1] and sequence[thisType_1'] and
+  
+  (i320->intJ_1) in thisType_1'  and   ret=true and 
+  (all a,b:JavaPrimitiveIntegerValue|  
+	(a->b) in thisType_1 implies  (fun_java_primitive_integer_value_add[a,i321]->b) in thisType_1')
+  and
+   JavaPrimitiveIntegerValue.thisType_1'= JavaPrimitiveIntegerValue.thisType_1 + intJ_1
+
+
+}
+
+
+
+act Lista_offerFirst[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+   pre { precondition_Lista_offer_first[] }
+   post { postcondition_offer_first[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
+
+pred precondition_Lista_set_element
+[ indice:JavaPrimitiveIntegerValue,values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  not (no indice.values) and sequence[values]}
+
+
+pred postcondition_Lista_set_element
+[
+  indice: JavaPrimitiveIntegerValue,
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  retorno:JavaPrimitiveIntegerValue
+]
+{
+
+sequence[values]  and
+retorno=indice.values and values'=values++(indice->elem)
+
+}
+
+
+act Lista_set_element[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*in*/intJ_2:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1:JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_set_element[intJ_1,thisType_1] }
+
+   post { postcondition_Lista_set_element[intJ_1,intJ_2,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+
+
+pred postcondition_Lista_indexOf
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret:JavaPrimitiveIntegerValue
+] {
+    sequence[values] and values'=values and
+    ( ((no values.elem)  and pred_java_primitive_integer_value_eq[i32m1,ret]) 
+
+or 
+    (not(no values.elem) and (some min:values.elem | 
+                                    (all e:values.elem | pred_java_primitive_integer_value_lte[min,e]) and 
+				      pred_java_primitive_integer_value_eq[min,ret])) 
+
+)
+}
+
+pred precondition_Lista_indexOf[]{}
+
+
+act Lista_indexOf[
+        /*in*/intJ_1:JavaPrimitiveIntegerValue,
+        /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+        /*out*/return_intJ_1:JavaPrimitiveIntegerValue]
+ {
+  pre { precondition_Lista_indexOf[] }
+  post { postcondition_Lista_indexOf[intJ_1,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+
+
+
+
+
+
+pred precondition_Listaremove_first
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Listaremove_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+ sequence[values]and sequence[values'] and
+//(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) ) and
+    pred_java_primitive_integer_value_eq[ret,i320.values]  
+and    (all a,b:JavaPrimitiveIntegerValue | ((a->b) in values and  pred_java_primitive_integer_value_neq[a,i320])  implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') 
+
+and (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  not (((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) in values') ) 
+
+  
+
+
+
+
+
+
+}
+
+
+
+act Lista_remove_first
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Listaremove_first[thisType_1] }
+    post { postcondition_Listaremove_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+pred postcondition_Lista_getLast 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue]
+{
+   sequence[values'] and 
+    sequence[values] and values'=values and
+
+   (some size:JavaPrimitiveIntegerValue | 
+		myseq_card[values,size] and 
+ret=values[fun_java_primitive_integer_value_sub[size,i321]]
+
+)
+}
+
+
+pred precondition_Lista_getLast
+[  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act Lista_getLast[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_getLast[thisType_1] }
+    post { postcondition_Lista_getLast[thisType_1,thisType_1,return_intJ_1'] }
+}/*scope:0*/
+
+
+pred precondition_Listaremove
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Listaremove 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+ sequence[values]and sequence[values'] and
+//(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) ) and
+    pred_java_primitive_integer_value_eq[ret,i320.values]  
+and    (all a,b:JavaPrimitiveIntegerValue | ((a->b) in values and  pred_java_primitive_integer_value_neq[a,i320])  implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') 
+
+and (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  not (((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) in values') ) 
+
+  
+
+
+
+
+
+
+}
+
+
+
+act Listaremove
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Listaremove[thisType_1] }
+    post { postcondition_Listaremove[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+pred precondition_Lista_poll
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Lista_poll 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue+null
+]
+{
+(
+  (ret=null and (no values') and (no values))
+)
+or
+(
+sequence[values] and sequence[values'] and
+(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and 
+         values.JavaPrimitiveIntegerValue=(values'.JavaPrimitiveIntegerValue)+fun_java_primitive_integer_value_sub[size,i321]) and 
+    pred_java_primitive_integer_value_eq[ret,i320.values]  and
+   (all a,b:JavaPrimitiveIntegerValue | (a->b) in values and  pred_java_primitive_integer_value_neq[a,i320]  
+	implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') 
+)
+
+}
+
+
+
+act Lista_poll
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue+null]{  
+    pre { precondition_Lista_poll[thisType_1] }
+    post { postcondition_Lista_poll[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+
+
+
+
+
+
+pred postcondition_Lista_get_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+   sequence[values] and values'=values and
+    pred_java_primitive_integer_value_eq[ret,values[i320]]
+} 
+
+
+pred precondition_Lista_get_first
+[
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act get_first[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_get_first[thisType_1] }
+    post { postcondition_Lista_get_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 
+pred precondition_Lista_addl[]{}
+
+pred postcondition_Lista_addl[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+   sequence[values] and 
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1))
+}
+
+
+
+act Lista_add_last[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_addl[] }
+   post { postcondition_Lista_addl[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+
+
+pred postcondition_Lista_get 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  indice: JavaPrimitiveIntegerValue,
+  retorno: JavaPrimitiveIntegerValue
+]
+{
+      sequence[values] and values'=values and  pred_java_primitive_integer_value_eq[retorno,values[indice]]
+    
+
+}
+
+
+pred precondition_Lista_get
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  indice: JavaPrimitiveIntegerValue
+]
+{
+   not (no indice.values) and sequence[values] 
+
+}
+
+
+act Lista_get[/*out*/return_intJ_1: JavaPrimitiveIntegerValue,/*in*/intJ_1:JavaPrimitiveIntegerValue, /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_get[thisType_1,intJ_1] }
+    post { postcondition_Lista_get[thisType_1,thisType_1',intJ_1,return_intJ_1'] }
+}/*scope:0*/
+
+
+pred precondition_Lista_addf[]{}
+
+pred postcondition_Lista_addf[
+  intJ_1: JavaPrimitiveIntegerValue,
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  thisType_1':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[thisType_1] and sequence[thisType_1'] and
+  thisType_1'[i320]=intJ_1  and
+  (all a,b:JavaPrimitiveIntegerValue |  
+	(a->b) in thisType_1 implies  (fun_java_primitive_integer_value_add[a,i321]->b) in thisType_1') and
+        JavaPrimitiveIntegerValue.thisType_1'= JavaPrimitiveIntegerValue.thisType_1 + intJ_1
+}
+
+
+
+act Lista_add_first[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_addf[] }
+   post { postcondition_Lista_addf[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+
+pred precondition_Lista_push[]{}
+
+pred postcondition_Lista_push[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and sequence[values'] and
+    (i320-> intJ_1) in values'  and
+  (all a,b:JavaPrimitiveIntegerValue |  
+	(a->b) in values implies  (fun_java_primitive_integer_value_add[a,i321]->b) in values')
+ and
+        JavaPrimitiveIntegerValue.values'= JavaPrimitiveIntegerValue.values + intJ_1
+}
+
+
+
+act Lista_push[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_push[] }
+   post { postcondition_Lista_push[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+pred postcondition_Lista_isEmpty 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  return_bool: boolean 
+]
+{
+      (sequence[values] and values'=values)and  (equ[return_bool, true] iff no values)
+}
+
+
+pred precondition_Lista_isEmpty
+[]{}
+
+act Lista_isEmpty[/*out*/return_bool:boolean,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_isEmpty[] }
+    post { postcondition_Lista_isEmpty[thisType_1,thisType_1',return_bool'] 
+}}/*scope:0*/
+
+
+pred precondition_TS_size[]{}
+
+pred postcondition_TS_size [return_int':JavaPrimitiveIntegerValue, 
+    values: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+    values': JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{ 
+
+  sequence[values] and values'=values and  myseq_card[values,return_int']
+}
+
+
+
+
+
+
+act TS_size
+[/*out*/return_intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  pre {
+   precondition_TS_size[]
+}
+   post {
+   postcondition_TS_size[return_intJ_1',thisType_1,thisType_1']
+}}/*scope:0*/
+
+
+
+
+
+
+
+
+
+
+pred precondition_Lista_remove_m
+[
+  indice:JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]{  not (no indice.values)
+}
+
+pred postcondition_Lista_remove_m
+[
+  indice:JavaPrimitiveIntegerValue, 
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+  sequence[values] and sequence[values']  and
+
+  pred_java_primitive_integer_value_eq[ret,indice.values]  
+
+and 
+
+ (all a,b:JavaPrimitiveIntegerValue | (a->b) in values implies 
+	(( pred_java_primitive_integer_value_lt[a,indice] implies (a->b) in  values') and
+	 ( pred_java_primitive_integer_value_gt[a,indice] implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values'))
+) and 
+  JavaPrimitiveIntegerValue.values' + indice.values = JavaPrimitiveIntegerValue.values  
+
+and (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  not (((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) in values') ) 
+
+}
+
+
+act Lista_remove_m[
+   /*in*/intJ_1:JavaPrimitiveIntegerValue,
+   /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+   /*out*/return_intJ_1:JavaPrimitiveIntegerValue] 
+{  
+   pre { precondition_Lista_remove_m[intJ_1,thisType_1] }
+   post { postcondition_Lista_remove_m[intJ_1,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+pred postcondition_Lista_lio
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret:JavaPrimitiveIntegerValue
+]
+{
+     sequence[values]  and values'=values and(
+    ( (no values.elem)  and pred_java_primitive_integer_value_eq[i32m1,ret]) or 
+    (not(no values.elem) and (some max:values.elem | 
+                                    (all e:values.elem | pred_java_primitive_integer_value_lte[e,max]) and 
+				      pred_java_primitive_integer_value_eq[max,ret])) 
+
+)
+}
+
+pred precondition_Lista_lio[]{}
+
+
+act Lista_last_indexOf[
+        /*in*/intJ_1:JavaPrimitiveIntegerValue,
+        /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+        /*out*/return_intJ_1:JavaPrimitiveIntegerValue]
+ {
+  pre { precondition_Lista_lio[] }
+  post { postcondition_Lista_lio[intJ_1,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+
+pred postcondition_Lista_remove_fo
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean
+]
+{
+   ((no values.elem)  and ret=false and values=values') 
+    or 
+   (some i :JavaPrimitiveIntegerValue |
+	    (i->elem) in values and (all a,b:JavaPrimitiveIntegerValue | (a->b) in values  implies (
+					( pred_java_primitive_integer_value_lt[a,i]  implies (a->b) in values')    and
+					( pred_java_primitive_integer_value_lt[i,a]  implies ((fun_java_primitive_integer_value_sub[a,i321])->b) in values')
+                                    ) 
+                                    )  and
+
+ret=true and
+JavaPrimitiveIntegerValue.values-elem=JavaPrimitiveIntegerValue.values'  
+ and (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  not (((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) in values') ) 
+
+)
+}
+
+
+
+
+pred precondition_Lista_remove_fo
+[]{ }
+
+act Lista_remove_fo[/*in*/intJ_1: JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+    pre { precondition_Lista_remove_fo[] }
+    post { postcondition_Lista_remove_fo[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
+
+
+pred postcondition_Lista_peek_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+    sequence[values]  and values'=values and
+ pred_java_primitive_integer_value_eq[ret,i320.values]
+} 
+
+
+pred precondition_Lista_peek_first
+[
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act peek_first[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, 
+         /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_peek_first[thisType_1] }
+    post { postcondition_Lista_peek_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 
+
+pred precondition_Lista_add2
+[
+  indice: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+
+{
+   not (no indice.values) and  sequence[values]  
+}
+
+
+
+
+pred postcondition_Lista_add2
+[
+  elem: JavaPrimitiveIntegerValue,
+  indice:JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and sequence[values'] and
+       (indice->elem) in values' and
+        (all a,b:JavaPrimitiveIntegerValue | (a->b) in values implies (
+	(pred_java_primitive_integer_value_lt[a,indice] implies  (a->b) in values' )
+					and
+	(pred_java_primitive_integer_value_gt[a,indice] implies  (fun_java_primitive_integer_value_add[a,i321]->b) in values' )
+)) and 
+   JavaPrimitiveIntegerValue.values'= JavaPrimitiveIntegerValue.values + elem
+}
+
+
+act Lista_add2[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*in*/intJ_2:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_add2[intJ_1,thisType_1] }
+   post { postcondition_Lista_add2[intJ_1,intJ_2,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+one sig Lista_pop extends actionExec{}
+one sig TS_clear_0 extends actionExec{}
+one sig Lista_poll_first extends actionExec{}
+one sig contains extends actionExec{}
+one sig Lista_element_m extends actionExec{}
+one sig Lista_offer extends actionExec{}
+one sig Lista_peekLast extends actionExec{}
+one sig add extends actionExec{}
+one sig Lista_offer_last extends actionExec{}
+one sig peek extends actionExec{}
+one sig Lista_poll_last extends actionExec{}
+one sig Lista_remove_last extends actionExec{}
+one sig Lista_offerFirst extends actionExec{}
+one sig Lista_set_element extends actionExec{}
+one sig Lista_indexOf extends actionExec{}
+one sig Lista_remove_first extends actionExec{}
+one sig Lista_getLast extends actionExec{}
+one sig Listaremove extends actionExec{}
+one sig Lista_poll extends actionExec{}
+one sig get_first extends actionExec{}
+one sig Lista_add_last extends actionExec{}
+one sig Lista_get extends actionExec{}
+one sig Lista_add_first extends actionExec{}
+one sig Lista_push extends actionExec{}
+one sig Lista_isEmpty extends actionExec{}
+one sig TS_size extends actionExec{}
+one sig Lista_remove_m extends actionExec{}
+one sig Lista_last_indexOf extends actionExec{}
+one sig Lista_remove_fo extends actionExec{}
+one sig peek_first extends actionExec{}
+one sig Lista_add2 extends actionExec{}
+assertCorrectness programa_wap[intJ_2:JavaPrimitiveIntegerValue,valid_bool:boolean,intJ_1:JavaPrimitiveIntegerValue,thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,return_bool:boolean,return_intJ_1:JavaPrimitiveIntegerValue,valid_intJ:boolean,valid_intA:boolean,return_intJ_1:JavaPrimitiveIntegerValue+null,ac:actionExec]{pre={precondition_Lista_add[]}
+program={valid_intA:=false;valid_bool:=false;valid_intJ:=false;((Lista_add2[intJ_1,intJ_2,thisType_1]; ac:=Lista_add2))*}
+ post={postcondition_Lista_add[intJ_1,thisType_1,thisType_1']}
+}
+pred pred_not[p_0:JavaPrimitiveIntegerValue,p_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,p_2:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{ not(postcondition_Lista_add[p_0,p_1,p_2])}
+check programa_wap

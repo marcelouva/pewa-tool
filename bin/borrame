@@ -1,0 +1,17 @@
+
+
+def gene(caso,nume,accion,loops,filename): 
+    	cadena = ap1.read_config_case("../config.ini","case_"+caso)['actions']
+	predicado=''
+	if (not cadena==''):
+	   dic={}
+	   cade=cadena.split(':') 
+	   for e in cade:
+	     elem=e.split(',')
+	     dic[elem[0]]=elem[1] 	
+             if not dic.get(accion)==None:
+         	 predicado= ap1.load_pred_aux("../examples/"+caso+"/models/aux_pred_"+str(int(dic.get(accion))+ int(nume)+".als")
+	         #predicado=predicado.split("\n")[0]
+		 #os.system(" sed -i 's/\/\*INI_PRE.*FIN_PRE\*\//\/\*INI_PRE\*\/"+predicado+"\/\*FIN_PRE\*\//g ' "+filename)
+   	         #sys.exit(0)
+        return
