@@ -10,14 +10,18 @@ else:
    casos_de_studio= os.listdir('../examples')
    tiempo_to = ap1.read_config_case("../config.ini","options")['timeout']
    input_file = ap1.read_config_case("../config.ini","options")['input_file']
+
+
    if sys.argv[3]=='1':
         	
-	if sys.argv[1] in casos_de_studio:
-                
+	if not (sys.argv[1] in casos_de_studio):
+		print "Error: '"+sys.argv[1]+"' isn't a valid case study. "
+        else:        
 	        lista_ac = glob.glob('../examples/'+sys.argv[1]+'/actions/*_act')
 		cade="cat ../examples/"+sys.argv[1]+"/actions/preludio "+" ".join(lista_ac)+" > temporalnew.dals"
 		os.system(cade)
-                
+		print 'salio'
+                sys.exit(0)
 
          	if not "../examples/"+sys.argv[1]+"/actions/"+sys.argv[2]+"_act" in lista_ac:
 			print 'Error : not found action '+sys.argv[2]
