@@ -1,0 +1,26 @@
+pred postcondition_Lista_peek_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+    sequence[values]  and values'=values and
+ pred_java_primitive_integer_value_eq[ret,i320.values]
+} 
+
+
+pred precondition_Lista_peek_first
+[
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act peek_first[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, 
+         /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_peek_first[thisType_1] }
+    post { postcondition_Lista_peek_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 

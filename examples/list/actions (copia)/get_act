@@ -1,0 +1,31 @@
+pred postcondition_Lista_get 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  indice: JavaPrimitiveIntegerValue,
+  retorno: JavaPrimitiveIntegerValue
+]
+{
+      sequence[values] and values'=values and  pred_java_primitive_integer_value_eq[retorno,values[indice]]
+    
+
+}
+
+
+pred precondition_Lista_get
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  indice: JavaPrimitiveIntegerValue
+]
+{
+   not (no indice.values) and sequence[values] 
+
+}
+
+
+act Lista_get[/*out*/return_intJ_1: JavaPrimitiveIntegerValue,/*in*/intJ_1:JavaPrimitiveIntegerValue, /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_get[thisType_1,intJ_1] }
+    post { postcondition_Lista_get[thisType_1,thisType_1',intJ_1,return_intJ_1'] }
+}/*scope:0*/
+
+

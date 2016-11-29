@@ -1,0 +1,26 @@
+pred precondition_Lista_push[]{}
+
+pred postcondition_Lista_push[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and sequence[values'] and
+    (i320-> intJ_1) in values'  and
+  (all a,b:JavaPrimitiveIntegerValue |  
+	(a->b) in values implies  (fun_java_primitive_integer_value_add[a,i321]->b) in values')
+ and
+        JavaPrimitiveIntegerValue.values'= JavaPrimitiveIntegerValue.values + intJ_1
+}
+
+
+
+act Lista_push[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_push[] }
+   post { postcondition_Lista_push[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+

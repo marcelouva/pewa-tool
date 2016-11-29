@@ -1,0 +1,25 @@
+pred postcondition_Lista_element_m 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+    sequence[values] and values'=values and
+
+    pred_java_primitive_integer_value_eq[ret,i320.values]
+} 
+
+
+pred precondition_Lista_element_m
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{      
+    sequence[values] and not (no values)
+}
+
+act Lista_element_m[/*out*/return_intJ_1: JavaPrimitiveIntegerValue, /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_element_m[thisType_1] }
+    post { postcondition_Lista_element_m[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/ 

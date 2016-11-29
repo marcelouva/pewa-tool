@@ -1,0 +1,37 @@
+pred precondition_Lista_poll_last
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+
+pred postcondition_Lista_pollLast 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue+null
+]
+{
+
+  (ret=null and (no values) and (no values'))
+  or
+
+  ( sequence[values] and  sequence[values'] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values-((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) and 
+  ret=values[fun_java_primitive_integer_value_sub[size,i321]])
+)
+}
+
+
+
+
+
+
+
+
+
+act Lista_poll_last
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue+null]{  
+    pre { precondition_Lista_poll_last[thisType_1] }
+    post { postcondition_Lista_pollLast[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+

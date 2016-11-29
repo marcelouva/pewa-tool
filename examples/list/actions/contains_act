@@ -1,0 +1,25 @@
+pred postcondition_Lista_contains[elem: JavaPrimitiveIntegerValue,values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,return_bool: boolean]
+{ 
+
+ sequence[values] and 
+values'=values and
+
+( not (no values.elem ) implies equ[return_bool, true])
+     and
+  ((no values.elem ) implies equ[return_bool, false] )
+
+}
+
+pred precondition_Lista_contains[]{
+}
+
+act contains
+[ /*out*/return_bool:boolean,/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  pre {
+   precondition_Lista_contains[]
+}
+   post {
+   postcondition_Lista_contains[intJ_1,thisType_1,thisType_1',return_bool']
+
+}}/*scope:0*/
+

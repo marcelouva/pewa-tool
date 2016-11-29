@@ -1,0 +1,33 @@
+pred precondition_TS_size[]{}
+
+pred postcondition_TS_size [return_int':JavaPrimitiveIntegerValue, 
+    values: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+    values': JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{ 
+
+  sequence[values] and values'=values and  myseq_card[values,return_int']
+}
+
+
+
+
+
+
+act TS_size
+[/*out*/return_intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  pre {
+   precondition_TS_size[]
+}
+   post {
+   postcondition_TS_size[return_intJ_1',thisType_1,thisType_1']
+}}/*scope:0*/
+
+
+
+
+
+
+
+
+
+

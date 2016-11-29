@@ -1,0 +1,881 @@
+size: 11
+first wac found in: 106.412636042 seconds.
+size: 12
+size: 11
+first wac found in: 155.541830063 seconds.
+size: 12
+size: 11
+first wac found in: 105.217368126 seconds.
+size: 12
+size: 11
+first wac found in: 102.743457794 seconds.
+size: 12
+first wac found in: 227.966243029 seconds.
+size: 13
+first wac found in: 276.979664087 seconds.
+push:Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround without failures: 202.732 seconds.|Avg. time to find a workaround: 202.732 seconds.|Total running time: 608.196 seconds.|Smallest input size: 11 elements.|Time to find a workaround for the smallest input: 102.850|Largest input size: 13 elements.|Time to find a workaround for the largest input: 277.150|Avg. size of workarounds: 1.0 seconds.|
+
+size: 11
+first wac found in: 124.426854849 seconds.
+size: 12
+first wac found in: 251.343194962 seconds.
+size: 13
+size: 11
+size: 11
+first wac found in: 127.463555098 seconds.
+size: 12
+first wac found in: 133.861531019 seconds.
+size: 13
+first wac found in: 130.785591125 seconds.
+push:Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround without failures: 130.870 seconds.|Avg. time to find a workaround: 130.870 seconds.|Total running time: 392.611 seconds.|Smallest input size: 11 elements.|Time to find a workaround for the smallest input: 127.588|Largest input size: 13 elements.|Time to find a workaround for the largest input: 131.036|Avg. size of workarounds: 1.0 seconds.|
+
+size: 11
+first wac found in: 70.3427388668 seconds.
+size: 12
+first wac found in: 104.643372059 seconds.
+size: 13
+first wac found in: 126.420919895 seconds.
+push:Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround without failures: 100.585 seconds.|Avg. time to find a workaround: 100.585 seconds.|Total running time: 301.757 seconds.|Smallest input size: 11 elements.|Time to find a workaround for the smallest input: 70.433|Largest input size: 13 elements.|Time to find a workaround for the largest input: 126.580|Avg. size of workarounds: 1.0 seconds.|
+
+size: 11
+size: 11
+size: 11
+size: 11
+size: 11
+-------------------------------------------------------
+size: 11
+size: 11
+first wac found in: 69.2648108006 seconds.
+size: 12
+size: 11
+there is no workarounds size:1
+size: 11
+there is no workarounds size:2
+size: 11
+there is no workarounds size:3
+size: 11
+there is no workarounds size:4
+size: 11
+there is no workarounds size:5
+size: 11
+there is no workarounds size:6
+size: 11
+there is no workarounds size:7
+size: 11
+there is no workarounds size:8
+size: 11
+there is no workarounds size:9
+size: 11
+there is no workarounds size:10
+size: 11
+there is no workarounds size:11
+size: 11
+size: 11
+first wac found in: 5.96664905548 seconds.
+size: 12
+size: 11
+first wac found in: 4.98338890076 seconds.
+size: 12
+size: 11
+first wac found in: 6.9171090126 seconds.
+size: 12
+size: 11
+first wac found in: 6.61941409111 seconds.
+size: 12
+first wac found in: 6.87948703766 seconds.
+size: 13
+size: 11
+size: 11
+size: 11
+timeout for 2 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 3 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 4 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 5 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 6 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 7 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 8 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 9 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 10 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 11 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 12 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 13 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 14 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 15 unrolls.
+-------------------------------------------------------
+size: 11
+timeout for 16 unrolls.
+-------------------------------------------------------
+size: 11
+size: 11
+first wac found in: 68.7325201035 seconds.
+size: 12
+size: 11
+first wac found in: 71.1995499134 seconds.
+size: 12
+first wac found in: 114.633189917 seconds.
+size: 13
+size: 11
+first wac found in: 411.69848299 seconds.
+size: 12
+size: 7
+first wac found in: 31.2886180878 seconds.
+size: 7
+first wac found in: 33.1183681488 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 7.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 33.176 seconds.|Avg. time to find a workaround: 33.176 seconds.|Total running time: 33.176 seconds.|Smallest input size: 7 elements.|Maximum time to find a workaround for the smallest input: 33.176|Largest input size: 7 elements.|Maximum time to find a workaround for the largest input: 33.176|Avg. size of workarounds: 1.0 seconds.|
+
+size: 7
+first wac found in: 28.656430006 seconds.
+pop:Action pop | Number of inputs processed: 1|Avg. input size: 7.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 28.713 seconds.|Avg. time to find a workaround: 28.713 seconds.|Total running time: 28.713 seconds.|Smallest input size: 7 elements.|Maximum time to find a workaround for the smallest input: 28.713|Largest input size: 7 elements.|Maximum time to find a workaround for the largest input: 28.713|Avg. size of workarounds: 1.0 seconds.|
+
+size: 7
+first wac found in: 35.4397389889 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 7.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 35.871 seconds.|Avg. time to find a workaround: 35.871 seconds.|Total running time: 35.871 seconds.|Smallest input size: 7 elements.|Maximum time to find a workaround for the smallest input: 35.871|Largest input size: 7 elements.|Maximum time to find a workaround for the largest input: 35.871|Avg. size of workarounds: 1.0 seconds.|
+
+size: 7
+first wac found in: 29.9770450592 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 7.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 30.070 seconds.|Avg. time to find a workaround: 30.070 seconds.|Total running time: 30.070 seconds.|Smallest input size: 7 elements.|Maximum time to find a workaround for the smallest input: 30.070|Largest input size: 7 elements.|Maximum time to find a workaround for the largest input: 30.070|Avg. size of workarounds: 1.0 seconds.|
+
+size: 7
+first wac found in: 26.7258098125 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 7.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 26.784 seconds.|Avg. time to find a workaround: 26.784 seconds.|Total running time: 26.784 seconds.|Smallest input size: 7 elements.|Maximum time to find a workaround for the smallest input: 26.784|Largest input size: 7 elements.|Maximum time to find a workaround for the largest input: 26.784|Avg. size of workarounds: 1.0 seconds.|
+
+size: 3
+size: 3
+first wac found in: 12.613022089 seconds.
+add:Action add | Number of inputs processed: 1|Avg. input size: 3.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 12.759 seconds.|Avg. time to find a workaround: 12.759 seconds.|Total running time: 12.759 seconds.|Smallest input size: 3 elements.|Maximum time to find a workaround for the smallest input: 12.759|Largest input size: 3 elements.|Maximum time to find a workaround for the largest input: 12.759|Avg. size of workarounds: 1.0 seconds.|
+
+size: 3
+first wac found in: 11.9132399559 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 3.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 11.971 seconds.|Avg. time to find a workaround: 11.971 seconds.|Total running time: 11.971 seconds.|Smallest input size: 3 elements.|Maximum time to find a workaround for the smallest input: 11.971|Largest input size: 3 elements.|Maximum time to find a workaround for the largest input: 11.971|Avg. size of workarounds: 1.0 seconds.|
+
+size: 3
+first wac found in: 11.4660460949 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 3.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 11.505 seconds.|Avg. time to find a workaround: 11.505 seconds.|Total running time: 11.505 seconds.|Smallest input size: 3 elements.|Maximum time to find a workaround for the smallest input: 11.505|Largest input size: 3 elements.|Maximum time to find a workaround for the largest input: 11.505|Avg. size of workarounds: 1.0 seconds.|
+
+size: 3
+size: 3
+size: 3
+size: 3
+first wac found in: 14.6621088982 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 3.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 14.775 seconds.|Avg. time to find a workaround: 14.775 seconds.|Total running time: 14.775 seconds.|Smallest input size: 3 elements.|Maximum time to find a workaround for the smallest input: 14.775|Largest input size: 3 elements.|Maximum time to find a workaround for the largest input: 14.775|Avg. size of workarounds: 1.0 seconds.|
+
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 3
+first wac found in: 14.7695128918 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 3.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 14.899 seconds.|Avg. time to find a workaround: 14.899 seconds.|Total running time: 14.899 seconds.|Smallest input size: 3 elements.|Maximum time to find a workaround for the smallest input: 14.899|Largest input size: 3 elements.|Maximum time to find a workaround for the largest input: 14.899|Avg. size of workarounds: 1.0 seconds.|
+
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+first wac found in: 8.44635915756 seconds.
+add_first:Action add_first | Number of inputs processed: 1|Avg. input size: 2.0|Number of workarrounds found: 1|Number of failures (exceeding a 10m timeout for trace): 0|Avg. time to find a workaround (not including failures): 8.499 seconds.|Avg. time to find a workaround: 8.499 seconds.|Total running time: 8.499 seconds.|Smallest input size: 2 elements.|Maximum time to find a workaround for the smallest input: 8.499|Largest input size: 2 elements.|Maximum time to find a workaround for the largest input: 8.499|Avg. size of workarounds: 1.0 seconds.|
+
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2
+size: 2

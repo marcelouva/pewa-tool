@@ -1,0 +1,281 @@
+//-------------- prelude--------------//
+module moduleId 
+
+open Integer32 
+open util/sequniv as sequniv 
+
+fun fun_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field & type->(type+null)) & type 
+}
+
+
+abstract sig char {} 
+
+abstract sig Exception{}
+one sig E1 extends Exception{} 
+
+
+fun shl[l,r: Int]: Int { l << r } 
+fun sshr[l,r: Int]: Int { l >> r } 
+fun ushr[l,r: Int]: Int { l >>> r } 
+
+fun fun_univ_equals[
+  l:univ, 
+  r: univ 
+]: boolean { 
+  (equ[l,r]) => true else false 
+} 
+
+fun fun_set_add[
+  l: set univ,
+  e: univ
+]: set univ { 
+  l+e 
+} 
+
+fun fun_set_remove[
+  l: set univ,
+  e: univ
+]: set univ {
+  l-e
+}
+fun fun_set_contains[
+  l: set univ,
+  e: univ
+]: boolean {
+  (e in l) => true else false 
+} 
+pred isSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l in r) 
+} 
+pred isNotSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l !in r) 
+} 
+fun fun_set_size[s: set univ]: Int { #s } 
+
+fun fun_not_empty_set[s: set univ]: boolean { (#s = 0) => false else true } 
+
+pred pred_empty_set[l: set univ] { (no l) } 
+
+pred pred_set_some[l: set univ] { some l } 
+
+pred pred_set_one[l: set univ] { one l } 
+
+pred pred_set_lone[l: set univ] { lone l } 
+
+
+fun fun_set_intersection[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l & r 
+} 
+fun fun_set_difference[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l - r 
+} 
+fun fun_set_sum[
+  s: set Int
+]: Int {
+  sum s 
+} 
+pred pred_empty_list[l: seq univ] { (no l) } 
+
+fun fun_list_add[
+  l: seq univ,
+  e: univ
+]: seq univ {
+  sequniv/add[l,e] 
+} 
+
+fun fun_list_get[
+  l: seq univ, 
+  index: Int
+]: univ { 
+  index.l 
+} 
+
+fun fun_list_contains[
+  l: seq univ, 
+  e: univ
+]: boolean { 
+  (e in Int.l) => true else false 
+} 
+
+fun fun_list_remove[
+  l: seq univ, 
+  index: Int
+]: seq univ { 
+  sequniv/delete[l,index] 
+} 
+
+fun fun_list_size[s: seq univ]: Int { #s } 
+
+fun fun_list_equals[
+  s1:seq univ, 
+  s2: seq univ
+]: boolean { 
+  (s1=s2) => true else false 
+} 
+
+fun fun_list_empty[s: seq univ]: boolean { (#s = 0) => true else false } 
+
+pred pred_empty_map[map: univ -> univ] { (no map) } 
+
+fun fun_map_put[
+  map: univ->univ, 
+  k: univ, 
+  v: univ
+]: univ-> univ { 
+  map ++ (k->v) 
+}
+
+fun fun_map_contains_key[
+  map: univ -> univ, 
+  k: univ
+]: boolean { 
+  (some k.map) => true else false 
+}
+
+fun fun_map_remove[
+  map: univ -> univ, 
+  k: univ
+]: univ->univ {
+  map - (k->univ) 
+} 
+
+fun fun_map_get[
+  map: univ -> univ, 
+  k: univ
+]: univ { 
+  (some k.map) => k.map else null 
+} 
+
+fun fun_map_is_empty[
+  map: univ -> univ, 
+]: boolean { 
+  (some map) => false else true 
+}
+
+fun fun_map_clear[
+  mapEntries1: univ -> univ -> univ, 
+  map: univ
+]: univ -> univ -> univ { 
+  mapEntries1 - (map -> univ -> univ)
+}
+
+fun fun_map_size[
+  map: univ -> univ, 
+]: univ {
+  #map 
+} 
+
+pred isEmptyOrNull[u: univ] { u in null } 
+fun fun_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  ^rel 
+} 
+
+fun fun_reflexive_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  *rel 
+} 
+
+fun fun_transpose[
+  rel: univ -> univ 
+]: univ -> univ {
+  ~rel 
+} 
+
+
+fun rel_override[
+  r:univ->univ,
+  k:univ, 
+  v:univ
+]: univ->univ { 
+  r - (k->univ) + (k->v) 
+} 
+
+
+pred pred_in[n: univ, t: set univ] { n in t } 
+
+pred instanceOf[n: univ, t: set univ] { n in t } 
+
+pred isCasteableTo[n: univ, t: set univ] { (n in t) or (n = null) } 
+
+
+
+abstract sig actionExec{}
+
+
+
+
+pred pos_gen_Int[y:Int]{
+ some i: Int | y = i
+}
+
+
+act gen_intA[x:Int] {
+  pre {TruePred[]}
+  post {pos_gen_Int[x'] }
+}
+
+
+pred pos_gen_I32[y:JavaPrimitiveIntegerValue]{
+  some i: JavaPrimitiveIntegerValue | pred_java_primitive_integer_value_eq[y,i]
+}
+
+
+
+act gen_intJ[x:JavaPrimitiveIntegerValue] {
+  pre {TruePred[]}
+  post { pos_gen_I32[x'] }
+}
+
+pred pos_add_null[s:JavaPrimitiveIntegerValue,b:boolean]{
+   equ[s,null] implies equ[b,false]
+   not equ[s,null] implies equ[b,true]
+}
+
+
+pred pos_verify_null[s:JavaPrimitiveIntegerValue+null,b:boolean]{
+   equ[s,null] implies equ[b,false]
+   not equ[s,null] implies equ[b,true]
+}
+
+act verify_null[s:JavaPrimitiveIntegerValue,b:boolean] {
+  pre {TruePred[]}
+  post {pos_add_null[s,b'] }
+}
+
+pred pos_vaciar[s:set univ]{
+    no s
+}
+
+
+act init_set[s:set univ] {
+  pre {TruePred[]}
+  post {pos_vaciar[s']}
+}
+
+
+pred sequence[s: JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {
+    all x: s.JavaPrimitiveIntegerValue | int32_prevs[x] in s.JavaPrimitiveIntegerValue 
+}
+
+
+
+

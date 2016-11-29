@@ -1,0 +1,28 @@
+pred precondition_Lista_add[]{}
+
+pred postcondition_Lista_add[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1))
+}
+
+
+
+act add[
+  /*in*/intJ_1:JavaPrimitiveIntegerValue, 
+  /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_add[] }
+   post { postcondition_Lista_add[intJ_1,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+
+
+
+
+
+
+

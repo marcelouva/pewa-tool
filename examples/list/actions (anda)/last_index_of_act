@@ -1,0 +1,29 @@
+pred postcondition_Lista_lio
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret:JavaPrimitiveIntegerValue
+]
+{
+     sequence[values]  and values'=values and(
+    ( (no values.elem)  and pred_java_primitive_integer_value_eq[i32m1,ret]) or 
+    (not(no values.elem) and (some max:values.elem | 
+                                    (all e:values.elem | pred_java_primitive_integer_value_lte[e,max]) and 
+				      pred_java_primitive_integer_value_eq[max,ret])) 
+
+)
+}
+
+pred precondition_Lista_lio[]{}
+
+
+act Lista_last_indexOf[
+        /*in*/intJ_1:JavaPrimitiveIntegerValue,
+        /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+        /*out*/return_intJ_1:JavaPrimitiveIntegerValue]
+ {
+  pre { precondition_Lista_lio[] }
+  post { postcondition_Lista_lio[intJ_1,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+

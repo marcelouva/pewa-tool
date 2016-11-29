@@ -1,0 +1,43 @@
+pred precondition_Lista_poll
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Lista_poll 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue+null
+]
+{
+(
+  (ret=null and (no values') and (no values))
+)
+or
+(
+sequence[values] and sequence[values'] and
+(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and 
+         values.JavaPrimitiveIntegerValue=(values'.JavaPrimitiveIntegerValue)+fun_java_primitive_integer_value_sub[size,i321]) and 
+    pred_java_primitive_integer_value_eq[ret,i320.values]  and
+   (all a,b:JavaPrimitiveIntegerValue | (a->b) in values and  pred_java_primitive_integer_value_neq[a,i320]  
+	implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') 
+)
+
+}
+
+
+
+act Lista_poll
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue+null]{  
+    pre { precondition_Lista_poll[thisType_1] }
+    post { postcondition_Lista_poll[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+
+
+
+
+
+

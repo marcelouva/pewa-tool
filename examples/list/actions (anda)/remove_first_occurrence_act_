@@ -1,0 +1,37 @@
+pred postcondition_Lista_remove_fo
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean
+]
+{  sequence[values]and sequence[values'] and
+   (no values.elem  implies ret=false and values=values') 
+    or 
+   (some i :JavaPrimitiveIntegerValue |
+    (i->elem) in values and (all a,b:JavaPrimitiveIntegerValue | (a->b) in values  implies (
+	( pred_java_primitive_integer_value_lt[a,i]  implies (a->b) in values')    and
+	( pred_java_primitive_integer_value_lt[i,a]  implies ((fun_java_primitive_integer_value_sub[a,i321])->b) in values')
+                                    ) 
+                                    )  and
+
+ret=true and
+JavaPrimitiveIntegerValue.values-elem=JavaPrimitiveIntegerValue.values'
+
+)
+}
+
+
+
+
+pred precondition_Lista_remove_fo
+[]{ }
+
+act Lista_remove_fo[/*in*/intJ_1: JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+    pre { precondition_Lista_remove_fo[] }
+    post { postcondition_Lista_remove_fo[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
+
+

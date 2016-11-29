@@ -1,0 +1,39 @@
+
+pred precondition_Lista_add2
+[
+  indice: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+
+{
+   not (no indice.values) and  sequence[values]  
+}
+
+
+
+
+pred postcondition_Lista_add2
+[
+  elem: JavaPrimitiveIntegerValue,
+  indice:JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[values] and sequence[values'] and
+       (indice->elem) in values' and
+        (all a,b:JavaPrimitiveIntegerValue | (a->b) in values implies (
+	(pred_java_primitive_integer_value_lt[a,indice] implies  (a->b) in values' )
+					and
+	(pred_java_primitive_integer_value_gt[a,indice] implies  (fun_java_primitive_integer_value_add[a,i321]->b) in values' )
+)) and 
+   JavaPrimitiveIntegerValue.values'= JavaPrimitiveIntegerValue.values + elem
+}
+
+
+act Lista_add2[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*in*/intJ_2:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_add2[intJ_1,thisType_1] }
+   post { postcondition_Lista_add2[intJ_1,intJ_2,thisType_1,thisType_1'] }
+}/*scope:1*/
+
+

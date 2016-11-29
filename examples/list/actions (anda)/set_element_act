@@ -1,0 +1,28 @@
+pred precondition_Lista_set_element
+[ indice:JavaPrimitiveIntegerValue,values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{  not (no indice.values) and sequence[values]}
+
+
+pred postcondition_Lista_set_element
+[
+  indice: JavaPrimitiveIntegerValue,
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  retorno:JavaPrimitiveIntegerValue
+]
+{
+
+sequence[values]  and
+retorno=indice.values and values'=values++(indice->elem)
+
+}
+
+
+act Lista_set_element[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*in*/intJ_2:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1:JavaPrimitiveIntegerValue] {  
+   pre { precondition_Lista_set_element[intJ_1,thisType_1] }
+
+   post { postcondition_Lista_set_element[intJ_1,intJ_2,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+
+

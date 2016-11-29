@@ -1,0 +1,29 @@
+pred postcondition_Lista_peekLast 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue]
+{
+   sequence[values'] and 
+    sequence[values] and values'=values and
+
+   (some size:JavaPrimitiveIntegerValue | 
+		myseq_card[values,size] and 
+ret=values[fun_java_primitive_integer_value_sub[size,i321]]
+
+)
+}
+
+
+pred precondition_Lista_peekLast
+[  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]
+{      
+    sequence[thisType_1] and not (no thisType_1)
+}
+
+act Lista_peekLast[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue] {  
+    pre { precondition_Lista_peekLast[thisType_1] }
+    post { postcondition_Lista_peekLast[thisType_1,thisType_1,return_intJ_1'] }
+}/*scope:0*/
+
+
