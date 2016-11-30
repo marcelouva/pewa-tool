@@ -1,0 +1,505 @@
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add()
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add2()
+Workaround not found. 
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add2()
+Workaround not found. 
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add2()
+Workaround not found. 
+Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 0|Number of failures (exceeding a 1m timeout): 0|Total running time: 31.840 seconds.|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add2()
+Workaround not found. 
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add2()
+Workaround not found. 
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add2()
+Workaround not found. 
+Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 0|Number of failures (exceeding a 1m timeout): 0|Total running time: 28.643 seconds.|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add2()
+timeout
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add2()
+first wac found in: 11.842 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add2()
+first wac found in: 12.816 seconds.
+-----------------------------------------------
+
+Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 2|Number of failures (exceeding a 1m timeout): 1|Avg. time to find a workaround (not including failures): 12.329 seconds.|Avg. time to find a workaround: 15.182 seconds.|Total running time: 30.365 seconds.|Smallest input size: 12 elements.|Maximum time to find a workaround for the smallest input: 11.842|Largest input size: 13 elements.|Maximum time to find a workaround for the largest input: 12.816|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add2()
+first wac found in: 10.329 seconds.
+-----------------------------------------------
+
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add2()
+first wac found in: 11.077 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add2()
+first wac found in: 11.262 seconds.
+-----------------------------------------------
+
+Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 1m timeout): 0|Avg. time to find a workaround (not including failures): 10.889 seconds.|Avg. time to find a workaround: 10.889 seconds.|Total running time: 32.669 seconds.|Smallest input size: 11 elements.|Maximum time to find a workaround for the smallest input: 10.329|Largest input size: 13 elements.|Maximum time to find a workaround for the largest input: 11.262|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add2()
+first wac found in: 10.216 seconds.
+-----------------------------------------------
+
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add2()
+first wac found in: 11.183 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add2()
+first wac found in: 11.442 seconds.
+-----------------------------------------------
+
+Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 1m timeout): 0|Avg. time to find a workaround (not including failures): 10.947 seconds.|Avg. time to find a workaround: 10.947 seconds.|Total running time: 32.842 seconds.|Smallest input size: 11 elements.|Maximum time to find a workaround for the smallest input: 10.216|Largest input size: 13 elements.|Maximum time to find a workaround for the largest input: 11.442|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add_first()
+first wac found in: 10.650 seconds.
+-----------------------------------------------
+
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add_first()
+first wac found in: 5.786 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add_first()
+first wac found in: 8.044 seconds.
+-----------------------------------------------
+
+Action pred precondition_Lista_addf[]{}
+
+pred postcondition_Lista_addf[
+  intJ_1: JavaPrimitiveIntegerValue,
+  thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  thisType_1':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue
+]
+{
+  sequence[thisType_1] and sequence[thisType_1'] and
+  thisType_1'[i320]=intJ_1  and
+  (all a,b:JavaPrimitiveIntegerValue |  
+	(a->b) in thisType_1 implies  (fun_java_primitive_integer_value_add[a,i321]->b) in thisType_1') and
+        JavaPrimitiveIntegerValue.thisType_1'= JavaPrimitiveIntegerValue.thisType_1 + intJ_1
+}
+
+
+
+ fact{ precondition_Lista_addf[]
+postcondition_Lista_addf[QF.intJ_1_0,QF.thisType_1_0,QF.thisType_1_1]
+}
+| Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 10m timeout): 0|Avg. time to find a workaround (not including failures): 8.160 seconds.|Avg. time to find a workaround: 8.160 seconds.|Total running time: 24.482 seconds.|Smallest input size: 11 elements.|Maximum time to find a workaround for the smallest input: 10.650|Largest input size: 13 elements.|Maximum time to find a workaround for the largest input: 8.044|
+Control<0>
+size: 11
+[1, 44400, 10, 500, 3373, -90220, 50550, -1, 60660, 4442, -3123]
+action to fix: add_first()
+first wac found in: 6.078 seconds.
+-----------------------------------------------
+
+Control<1>
+size: 12
+[1, 44400, -300, -30071, 80880, -6231, 11100, -30120, 339, 800, -20120, -70121]
+action to fix: add_first()
+first wac found in: 8.269 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 13
+[1, 44400, -300, -30071, 80880, 3, -700, 600, 400, 2372, -5231, -10123, 900]
+action to fix: add_first()
+first wac found in: 6.961 seconds.
+-----------------------------------------------
+
+Action add_first| Number of inputs processed: 3|Avg. input size: 12.0|Number of workarrounds found: 3|Number of failures (exceeding a 10m timeout): 0|Avg. time to find a workaround (not including failures): 7.103 seconds.|Avg. time to find a workaround: 7.103 seconds.|Total running time: 21.309 seconds.|Smallest input size: 11 elements.|Maximum time to find a workaround for the smallest input: 6.078|Largest input size: 13 elements.|Maximum time to find a workaround for the largest input: 6.961|
+Control<0>
+size: 7
+[1, -222, -8, -2, -2212, 335, -60120]
+action to fix: add()
+Control<1>
+size: 7
+[1, 44400, 10, 500, -700, 6, -6]
+action to fix: add()
+Control<2>
+size: 12
+[1, 44400, -300, -10123, 2, 2274, -60120, 339, 700, 2372, 1022, 300]
+action to fix: add()
+Control<3>
+size: 12
+[1, -9, -70121, -40120, -6231, -1, -133, -40120, 116, 33300, -3123, 11100]
+action to fix: add()
+Control<4>
+size: 12
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, -10123, -8, -400, 1000]
+action to fix: add()
+Control<5>
+size: 14
+[-222, 100000, -4, -9, 900, 1, -2212, -20120, 1, 600, 2132, 1, 10, -600]
+action to fix: add()
+Control<6>
+size: 16
+[-400, -7213, 100, 6, 300, -30120, 400, 335, -423, 300, 5, 0, -30071, 100, -30071, 213]
+action to fix: add()
+Control<7>
+size: 7
+[1, -9, -10123, 1000, -300, -81100, -7213]
+action to fix: add()
+Control<8>
+size: 12
+[1, 44400, 8, -6, 90990, -900, 400, -60120, -8, -81100, 339, 33300]
+action to fix: add()
+Control<9>
+size: 5
+[1, 33300, 11223, 335, 8]
+action to fix: add()
+Control<10>
+size: 7
+[-222, 100000, 100, -400, 700, 11100, -9]
+action to fix: add()
+Control<11>
+size: 13
+[1, 44400, 8, -70121, 6, -5231, -10123, 800, -400, -20120, -200, 900, 9]
+action to fix: add()
+Control<12>
+size: 8
+[10, 5, 3213, 33300, -30120, -222, -10, 2372]
+action to fix: add()
+Control<13>
+size: 8
+[1, -222, -8, -2, -2212, -1, 228, 2133]
+action to fix: add()
+Control<14>
+size: 13
+[1, 44400, 10, 500, 3373, -40120, 2132, -222, 2133, 423, -2212, 80880, 335]
+action to fix: add()
+Control<15>
+size: 10
+[1, -9, -10123, -60120, 10, 3373, 1022, -10123, -2212, 2133]
+action to fix: add()
+Control<16>
+size: 17
+[1, -9, -70121, -40120, -400, -800, 228, -7213, -40120, 1000, 3, 4, 7, -423, -10120, 2212, -5]
+action to fix: add()
+Control<17>
+size: 11
+[1, -9, -10123, -60120, 10, 3373, 213, -7, 2133, 4442, 0]
+action to fix: add()
+Control<18>
+size: 15
+[1, 44400, -300, -30071, 80880, -6231, 335, -7, -3123, 3213, -8223, 44400, -100, 100, 100]
+action to fix: add()
+Control<19>
+size: 15
+[-222, 100000, 100, -400, 700, 44400, 1122334, 900, -3321, 22200, 116, 3213, 10, -1, 6]
+action to fix: add()
+Control<20>
+size: 16
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, 100, 3, 400, -900, -2992, 300, -81100, 2212]
+action to fix: add()
+Control<21>
+size: 14
+[1, 44400, 8, -70121, 6, -5231, -60120, -81100, -30071, 0, -2992, -400, -400, 7]
+action to fix: add()
+Control<22>
+size: 13
+[1, 44400, -300, -30071, 80880, -900, 0, -423, 600, 900, 33300, 337, 5]
+action to fix: add()
+Control<23>
+size: 8
+[1, 44400, 10, 500, 80880, 1122334, 10, -93321]
+action to fix: add()
+Control<24>
+size: 13
+[1, 44400, 8, -70121, 6, 300, 3373, 100, -700, 44400, 22200, -700, 100]
+action to fix: add()
+Control<25>
+size: 15
+[1, 44400, -300, -10123, 2, 2274, 3213, -6231, 1122334, 2132, -7213, 700, 80880, -90220, -8223]
+action to fix: add()
+Control<26>
+size: 9
+[-222, 100000, 22200, -10, -1, 700, 2, 9, 100]
+action to fix: add()
+Control<27>
+size: 15
+[-222, 100000, 100, -400, 700, 44400, 2212, 4442, 22200, -93321, -7213, 800, 900, -7, 5]
+action to fix: add()
+Control<28>
+size: 11
+[1, -9, -10123, -60120, 10, -93321, 1, 800, 10, -222, -50220]
+action to fix: add()
+Control<29>
+size: 12
+[1, 44400, 10, -40120, -100, -70121, 100, 8, 1122334, -800, -4, 200]
+action to fix: add()
+Control<30>
+size: 12
+[1, -222, -8, -81100, 2, -4, -40120, -60120, 200, -8223, -10, 4]
+action to fix: add()
+Control<31>
+size: 10
+[1, 44400, 10, -40120, 11223, 100, -8223, -93321, -3321, 100000]
+action to fix: add()
+Control<32>
+size: 14
+[1, 44400, 8, -6, 90990, 70770, 100000, 200, -10120, -222, 10, -600, 339, -9]
+action to fix: add()
+Control<0>
+size: 7
+[1, -222, -8, -2, -2212, 335, -60120]
+action to fix: add()
+Control<1>
+size: 7
+[1, 44400, 10, 500, -700, 6, -6]
+action to fix: add()
+Control<2>
+size: 12
+[1, 44400, -300, -10123, 2, 2274, -60120, 339, 700, 2372, 1022, 300]
+action to fix: add()
+Control<3>
+size: 12
+[1, -9, -70121, -40120, -6231, -1, -133, -40120, 116, 33300, -3123, 11100]
+action to fix: add()
+Control<4>
+size: 12
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, -10123, -8, -400, 1000]
+action to fix: add()
+Control<5>
+size: 14
+[-222, 100000, -4, -9, 900, 1, -2212, -20120, 1, 600, 2132, 1, 10, -600]
+action to fix: add()
+Control<6>
+size: 16
+[-400, -7213, 100, 6, 300, -30120, 400, 335, -423, 300, 5, 0, -30071, 100, -30071, 213]
+action to fix: add()
+Control<7>
+size: 7
+[1, -9, -10123, 1000, -300, -81100, -7213]
+action to fix: add()
+Control<8>
+size: 12
+[1, 44400, 8, -6, 90990, -900, 400, -60120, -8, -81100, 339, 33300]
+action to fix: add()
+Control<9>
+size: 5
+[1, 33300, 11223, 335, 8]
+action to fix: add()
+Control<10>
+size: 7
+[-222, 100000, 100, -400, 700, 11100, -9]
+action to fix: add()
+Control<11>
+size: 13
+[1, 44400, 8, -70121, 6, -5231, -10123, 800, -400, -20120, -200, 900, 9]
+action to fix: add()
+Control<12>
+size: 8
+[10, 5, 3213, 33300, -30120, -222, -10, 2372]
+action to fix: add()
+Control<13>
+size: 8
+[1, -222, -8, -2, -2212, -1, 228, 2133]
+action to fix: add()
+Control<14>
+size: 13
+[1, 44400, 10, 500, 3373, -40120, 2132, -222, 2133, 423, -2212, 80880, 335]
+action to fix: add()
+Control<15>
+size: 10
+[1, -9, -10123, -60120, 10, 3373, 1022, -10123, -2212, 2133]
+action to fix: add()
+Control<16>
+size: 17
+[1, -9, -70121, -40120, -400, -800, 228, -7213, -40120, 1000, 3, 4, 7, -423, -10120, 2212, -5]
+action to fix: add()
+Control<17>
+size: 11
+[1, -9, -10123, -60120, 10, 3373, 213, -7, 2133, 4442, 0]
+action to fix: add()
+Control<18>
+size: 15
+[1, 44400, -300, -30071, 80880, -6231, 335, -7, -3123, 3213, -8223, 44400, -100, 100, 100]
+action to fix: add()
+Control<19>
+size: 15
+[-222, 100000, 100, -400, 700, 44400, 1122334, 900, -3321, 22200, 116, 3213, 10, -1, 6]
+action to fix: add()
+Control<20>
+size: 16
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, 100, 3, 400, -900, -2992, 300, -81100, 2212]
+action to fix: add()
+Control<21>
+size: 14
+[1, 44400, 8, -70121, 6, -5231, -60120, -81100, -30071, 0, -2992, -400, -400, 7]
+action to fix: add()
+Control<22>
+size: 13
+[1, 44400, -300, -30071, 80880, -900, 0, -423, 600, 900, 33300, 337, 5]
+action to fix: add()
+Control<23>
+size: 8
+[1, 44400, 10, 500, 80880, 1122334, 10, -93321]
+action to fix: add()
+Control<24>
+size: 13
+[1, 44400, 8, -70121, 6, 300, 3373, 100, -700, 44400, 22200, -700, 100]
+action to fix: add()
+Control<25>
+size: 15
+[1, 44400, -300, -10123, 2, 2274, 3213, -6231, 1122334, 2132, -7213, 700, 80880, -90220, -8223]
+action to fix: add()
+Control<26>
+size: 9
+[-222, 100000, 22200, -10, -1, 700, 2, 9, 100]
+action to fix: add()
+Control<27>
+size: 15
+[-222, 100000, 100, -400, 700, 44400, 2212, 4442, 22200, -93321, -7213, 800, 900, -7, 5]
+action to fix: add()
+Control<28>
+size: 11
+[1, -9, -10123, -60120, 10, -93321, 1, 800, 10, -222, -50220]
+action to fix: add()
+Control<29>
+size: 12
+[1, 44400, 10, -40120, -100, -70121, 100, 8, 1122334, -800, -4, 200]
+action to fix: add()
+Control<30>
+size: 12
+[1, -222, -8, -81100, 2, -4, -40120, -60120, 200, -8223, -10, 4]
+action to fix: add()
+Control<31>
+size: 10
+[1, 44400, 10, -40120, 11223, 100, -8223, -93321, -3321, 100000]
+action to fix: add()
+Control<32>
+size: 14
+[1, 44400, 8, -6, 90990, 70770, 100000, 200, -10120, -222, 10, -600, 339, -9]
+action to fix: add()
+Control<0>
+size: 7
+[1, -222, -8, -2, -2212, 335, -60120]
+action to fix: add()
+Control<1>
+size: 7
+[1, 44400, 10, 500, -700, 6, -6]
+action to fix: add()
+Control<2>
+size: 12
+[1, 44400, -300, -10123, 2, 2274, -60120, 339, 700, 2372, 1022, 300]
+action to fix: add()
+first wac found in: 5.693 seconds.
+-----------------------------------------------
+
+Control<3>
+size: 12
+[1, -9, -70121, -40120, -6231, -1, -133, -40120, 116, 33300, -3123, 11100]
+action to fix: add()
+first wac found in: 6.149 seconds.
+-----------------------------------------------
+
+Control<4>
+size: 12
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, -10123, -8, -400, 1000]
+action to fix: add()
+Control<0>
+size: 7
+[1, -222, -8, -2, -2212, 335, -60120]
+action to fix: add()
+Control<1>
+size: 7
+[1, 44400, 10, 500, -700, 6, -6]
+action to fix: add()
+Control<2>
+size: 12
+[1, 44400, -300, -10123, 2, 2274, -60120, 339, 700, 2372, 1022, 300]
+action to fix: add()
+first wac found in: 5.683 seconds.
+-----------------------------------------------
+
+Control<3>
+size: 12
+[1, -9, -70121, -40120, -6231, -1, -133, -40120, 116, 33300, -3123, 11100]
+action to fix: add()
+first wac found in: 5.924 seconds.
+-----------------------------------------------
+
+Control<4>
+size: 12
+[1, 44400, -300, -30071, 80880, -60120, -400, 3321, -10123, -8, -400, 1000]
+action to fix: add()
+Control<0>
+size: 7
+[1, -222, -8, -2, -2212, 335, -60120]
+action to fix: add()
+first wac found in: 4.249 seconds.
+-----------------------------------------------
+
+Control<1>
+size: 7
+[1, 44400, 10, 500, -700, 6, -6]
+action to fix: add()
+first wac found in: 3.785 seconds.
+-----------------------------------------------
+
+Control<2>
+size: 12
+[1, 44400, -300, -10123, 2, 2274, -60120, 339, 700, 2372, 1022, 300]
+action to fix: add()
+first wac found in: 5.961 seconds.
+-----------------------------------------------
+
+Control<3>
+size: 12
+[1, -9, -70121, -40120, -6231, -1, -133, -40120, 116, 33300, -3123, 11100]
+action to fix: add()

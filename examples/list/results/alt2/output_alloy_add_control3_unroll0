@@ -1,0 +1,34 @@
+
+00000000  Starting Alloy Analyzer command line interface
+
+    * CLI version             : 1.6.0b3
+    * Alloy version           : 4.1.10
+    * Input spec file         : resultado.als
+
+00000068  Parsing and typechecking
+
+    * Command type            : run
+    * Command label           : CanSatisfyInvariant
+
+00003798  Translating Alloy to Kodkod
+
+    * Solver                  : minisat(jni)
+    * Bit width               : 1
+    * Max sequence            : 0
+    * Skolem depth            : 0
+    * Symmbreaking            : 20
+
+00004118  Translating Kodkod to CNF
+
+
+00005653  Solving
+
+    * Primary vars            : 1882
+    * Total vars              : 63033
+    * Clauses                 : 98397
+    * Outcome                 : SAT
+    * Solving time            : 1754
+    * XML solution file       : resultado.alsuva
+
+00005763  Analysis finished
+

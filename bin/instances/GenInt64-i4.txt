@@ -1,0 +1,9 @@
+nodes=
+JavaPrimitiveIntegerValue.b00=i320:false,maxint32:false,JavaPrimitiveIntegerValue:false
+JavaPrimitiveIntegerValue.b01=i320:false,maxint32:false,JavaPrimitiveIntegerValue:false
+JavaPrimitiveIntegerValue.b02=i320:false,maxint32:false,JavaPrimitiveIntegerValue:true
+JavaPrimitiveIntegerValue.b03=i320:false,maxint32:false,JavaPrimitiveIntegerValue:false
+JavaPrimitiveIntegerValue.b04=i320:false,maxint32:false,JavaPrimitiveIntegerValue:true
+JavaPrimitiveIntegerValue.b05=i320:false,maxint32:false,JavaPrimitiveIntegerValue:true
+JavaPrimitiveIntegerValue.b06=i320:false,maxint32:true,JavaPrimitiveIntegerValue:false
+JavaPrimitiveIntegerValue.b07=i320:false,maxint32:false,JavaPrimitiveIntegerValue:false
