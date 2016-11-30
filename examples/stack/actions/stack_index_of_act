@@ -1,0 +1,35 @@
+pred postcondition_Lista_indexOf
+[
+  elem: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret:JavaPrimitiveIntegerValue
+] {
+    sequence[values] and values'=values and
+    ( ((no values.elem)  and pred_java_primitive_integer_value_eq[i32m1,ret]) 
+
+or 
+    (not(no values.elem) and (some min:values.elem | 
+                                    (all e:values.elem | pred_java_primitive_integer_value_lte[min,e]) and 
+				      pred_java_primitive_integer_value_eq[min,ret])) 
+
+)
+}
+
+pred precondition_Lista_indexOf[]{}
+
+
+act Lista_indexOf[
+        /*in*/intJ_1:JavaPrimitiveIntegerValue,
+        /*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+        /*out*/return_intJ_1:JavaPrimitiveIntegerValue]
+ {
+  pre { precondition_Lista_indexOf[] }
+  post { postcondition_Lista_indexOf[intJ_1,thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:0*/
+
+
+
+
+
+

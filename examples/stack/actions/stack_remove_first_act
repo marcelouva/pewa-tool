@@ -1,0 +1,35 @@
+pred precondition_Listaremove_first
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+pred postcondition_Listaremove_first 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+ sequence[values]and sequence[values'] and
+//(some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) ) and
+    pred_java_primitive_integer_value_eq[ret,i320.values]  
+and    (all a,b:JavaPrimitiveIntegerValue | ((a->b) in values and  pred_java_primitive_integer_value_neq[a,i320])  implies (fun_java_primitive_integer_value_sub[a,i321]->b) in values') 
+
+and (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  not (((fun_java_primitive_integer_value_sub[size,i321])->JavaPrimitiveIntegerValue) in values') ) 
+
+  
+
+
+
+
+
+
+}
+
+
+
+act Lista_remove_first
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Listaremove_first[thisType_1] }
+    post { postcondition_Listaremove_first[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/

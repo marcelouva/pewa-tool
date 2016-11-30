@@ -1,0 +1,29 @@
+pred precondition_Lista_pop
+[values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue]{    
+  not (no values)
+}
+
+
+pred postcondition_Lista_pop 
+[
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: JavaPrimitiveIntegerValue
+]
+{
+
+   sequence[values] 
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values',size] and  values'=values-(size->JavaPrimitiveIntegerValue))
+}
+
+
+act Lista_pop
+[/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_intJ_1: JavaPrimitiveIntegerValue]{  
+    pre { precondition_Lista_pop[thisType_1] }
+    post { postcondition_Lista_pop[thisType_1,thisType_1',return_intJ_1'] }
+}/*scope:1*/
+
+
+
+
+

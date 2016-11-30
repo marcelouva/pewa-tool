@@ -1,0 +1,24 @@
+pred postcondition_Lista_offer[
+  intJ_1: JavaPrimitiveIntegerValue,
+  values:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  values':JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,
+  ret: boolean
+]
+{
+   sequence[values] and sequence[values'] and
+  (some size:JavaPrimitiveIntegerValue | myseq_card[values,size] and  values'=values+(size->intJ_1))
+   equ[ret,true]
+}
+
+
+pred precondition_Lista_offer
+[]{}
+
+
+
+act Lista_offer[/*in*/intJ_1:JavaPrimitiveIntegerValue,/*inout*/thisType_1:JavaPrimitiveIntegerValue->lone JavaPrimitiveIntegerValue,/*out*/return_bool: boolean] {  
+   pre { precondition_Lista_offer[] }
+   post { postcondition_Lista_offer[intJ_1,thisType_1,thisType_1',return_bool'] }
+}/*scope:1*/
+
+
